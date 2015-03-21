@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1>¿Quién puede ver tu horario?</h1>
+  </div>
+   <%= form_for(resource, :as => resource_name,
+    :url => new_permit_path(resource_name),
+    :html => { :role => "form" }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-group">
+      <%= f.label :Agregar_matricula %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.permit_field :granted_permit, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.submit "Agregar", class: "btn btn-primary" %>
+      </div>
+    </div>
+</div>
