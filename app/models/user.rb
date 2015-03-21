@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   # Validations
   # :email
-  validates_format_of :email, with: /[Aa]\d+@itesm\.mx/
+  validates_format_of :email, with: /[Aa](\d+)@itesm\.mx/
 
   def self.paged(page_number)
     order(admin: :desc, email: :asc).page page_number
