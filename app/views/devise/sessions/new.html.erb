@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-sm-6 ">
-    <h1>Sign in</h1>
+    <h1>Acceder</h1>
 
     <%= form_for(resource, :as => resource_name,
     :url => session_path(resource_name),
     role: "form") do |f| %>
 
     <div class="form-group">
-      <%= f.label :Your_itesm_email %>
+      <%= f.label :Correo_itesm %>
       <div class="row">
         <div class="col-sm-6">
           <%= f.text_field :email, :autofocus => true, class: "form-control" %>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :password %>
+      <%= f.label :Clave %>
       <div class="row">
         <div class="col-sm-6">
           <%= f.password_field :password, class: "form-control" %>
@@ -30,7 +30,7 @@
     <div class="form-group">
       <div class="row">
         <div class="col-sm-6">
-          <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+          <%= f.check_box :remember_me %> <%= f.label :recordarme %>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
 
     <div class="row">
       <div class="col-sm-6">
-        <%= f.submit "Sign in", class: "btn btn-primary" %>
+        <%= f.submit "Acceder", class: "btn btn-primary" %>
       </div>
     </div>
     <% end %>
