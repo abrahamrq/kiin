@@ -4,7 +4,7 @@ Kiin::Application.routes.draw do
   get "inside", to: "pages#inside", as: "inside"
   get "/contact", to: "pages#contact", as: "contact"
   post "/emailconfirmation", to: "pages#email", as: "email_confirmation"
-  get '/new_friend' => 'user_permits#new_permit', :as => 'new_permit'
+  get '/new_friend' => 'pages#new_permit', :as => 'new_permit'
   
   
   devise_for :users
@@ -12,7 +12,6 @@ Kiin::Application.routes.draw do
   namespace :admin do
     root "base#index"
     resources :users
-    
   end
 
 end

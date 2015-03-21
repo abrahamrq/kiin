@@ -33,4 +33,7 @@ class PagesController < ApplicationController
     end
   end
 
+  def new_permit
+  end
+
 end
