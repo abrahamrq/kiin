@@ -1,32 +1,30 @@
 <br>
-<div class = 'row'>
-  <div id="new_friend" style="width:280px;height:2em;float:left;margin-left:59px;margin-top:16px;">
-    <div class="well">
-      <%= simple_form_for @object, url: create_permit_path  do |f| %>
-        <div class="field"><%= f.input :granted_user, label: 'Matricula:', as: :string %></div>
-        <div class="field"><%= f.hidden_field :granting_user,:value => current_user.email.match(/([Aa](\d+))@itesm\.mx/)[1] %></div>
-        <%= f.button :submit, "Continuar", class: "btn btn-primary", data: {disable_with: "Espere porfavor..."}%>
-      <% end %>
+<div class="row">
+  <div class="col-md-4">
+    <div id="new_friend">
+      <div class="well">
+        <%= simple_form_for @object, url: create_permit_path  do |f| %>
+          <div class="field"><%= f.input :granted_user, label: 'Matricula:', as: :string %></div>
+          <div class="field"><%= f.hidden_field :granting_user,:value => current_user.email.match(/([Aa](\d+))@itesm\.mx/)[1] %></div>
+          <%= f.button :submit, "Continuar", class: "btn btn-primary", data: {disable_with: "Espere porfavor..."}%>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div id="list" style="width:700px;height:2em;float:left;margin-left:100px;margin-top:16px;">
-    <div class="panel panel-default">
-      <div class="panel-heading"> 
-        <div id="friends_table" class="rapper">
-          <table class="table table-striped child_table table-condensed no-footer admin_table" id="friends">
-            <thead>
-              <tr>
-                <th> Matricula</th>
-                <th width="15%" >Acciones</th>
-              </tr>
-            </thead>
-            <tbody id='requests-body'>
-              <td> </td>
-              <td> </td>
-            </tbody>
-          </table>
-        </div> 
-      </div>
-    </div>   
+  <div class="col-md-6">
+    <table class="table datatable">
+      <thead>
+        <tr>
+          <th>Matricula</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @object_collection.each do |student_id| %>
+        <tr>
+          <td> <%= student_id.try :granted_user %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

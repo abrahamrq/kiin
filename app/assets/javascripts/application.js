@@ -12,8 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
 //= require turbolinks
 //= require bootstrap 
 //= require common
 //= require moment
 //= require fullcalendar
+//= require dataTables/jquery.dataTables
+
+$(function(){
+  $('.datatable').DataTable({
+    "scrollX": true,
+    "aoColumnDefs" : [ { "bSortable": false, "aTargets" : [ "no-sort" ] } ],
+    // si se cambia spanish por cualquier idioma las tablas cambian de idioma
+    "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        }
+  });
+});
