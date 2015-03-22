@@ -12,16 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require dataTables/jquery.dataTables
-//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require bootstrap 
 //= require common
 //= require moment
 //= require fullcalendar
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 
 $(function(){
   $('.datatable').DataTable({
-    "scrollX": true,
+    "sScrollX": "100%",
+    "sScrollXInner": "100%",
     "aoColumnDefs" : [ { "bSortable": false, "aTargets" : [ "no-sort" ] } ],
     // si se cambia spanish por cualquier idioma las tablas cambian de idioma
     "language": {

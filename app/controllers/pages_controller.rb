@@ -75,6 +75,7 @@ class PagesController < ApplicationController
       redirect_to new_permit_path(current_user)
       flash[:notice] = "Matricula agregada exitosamente"
     else
+      @allowed = current_user.friends
       @object_collection = current_user.allowed_permits
       render :new_permit
       flash[:alert] = "Error al agregar Matricula"
