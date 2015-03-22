@@ -80,8 +80,8 @@ class PagesController < ApplicationController
 
   def create_permit
     @object = UserPermit.new
-    @object.granted_user = params[:user_permit][:granted_user] 
-    @object.granting_user = params[:user_permit][:granting_user] 
+    @object.granted_user = params[:user_permit][:granted_user].downcase 
+    @object.granting_user = params[:user_permit][:granting_user].downcase 
     if(@object.save)
       redirect_to new_permit_path(current_user)
       flash[:notice] = "Matricula agregada exitosamente"
