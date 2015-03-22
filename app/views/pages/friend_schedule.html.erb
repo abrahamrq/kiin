@@ -1,36 +1,41 @@
-<% if @events %>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-      	<center>
-          <h2>
-            <%= "Horario de #{@object.student_id}"%>
-          </h2>
-        </center>
-      	<div id='calendar'></div>
+<% if @authorized %>
+  <% if @events %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+        	<center>
+            <h2>
+              <%= "Horario de #{@object.student_id}"%>
+            </h2>
+          </center>
+        	<div id='calendar'></div>
+        </div>
       </div>
-    </div>
-  </div>  
-  <script>
-  $(document).ready(function() {
-      // page is now ready, initialize the calendar...
-      $('#calendar').fullCalendar({
-      	header: {
-          left: '',
-          center: '',
-          right: ''
-        },
-        height: 720,
-        allDaySlot: false,
-        columnFormat: "ddd",
-        minTime: '07:00:00',
-        maxTime: '22:00:00',
-        defaultView: 'agendaWeek',
-        events: <%== @classes.to_json %>
-      })
-  });
-  </script>
+    </div>  
+    <script>
+    $(document).ready(function() {
+        // page is now ready, initialize the calendar...
+        $('#calendar').fullCalendar({
+        	header: {
+            left: '',
+            center: '',
+            right: ''
+          },
+          height: 720,
+          allDaySlot: false,
+          columnFormat: "ddd",
+          minTime: '07:00:00',
+          maxTime: '22:00:00',
+          defaultView: 'agendaWeek',
+          events: <%== @classes.to_json %>
+        })
+    });
+    </script>
+  <% else %>
+    <h2>NO CONTAMOS CON EL HORARIO DE TU AMIGO(A)...</h2>
+    <h4>Recuerdale de reenviar el mail que le mando inscripciones al mail horarios.monterrey@gmail.com</h4>
+  <% end %>
 <% else %>
-  <h2>NO CONTAMOS CON EL HORARIO DE TU AMIGO(A)...</h2>
-  <h4>Recuerdale de reenviar el mail que le mando inscripciones al mail horarios.monterrey@gmail.com</h4>
+  <h2>ESTE USUARIO NO TE HA DADO PERMISO DE VER SU HORARIO...</h2>
+  <h4>Pidele que te agregue a sus amigos para que puedas accesar a verlo.</h4>
 <% end %>
