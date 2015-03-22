@@ -7,6 +7,24 @@ class PagesController < ApplicationController
   end
 
   def inside
+    @events = COLL.find(id: current_user.mongo_id).to_a.first
+    @classes = []
+    if Date.today.sunday?
+      d = Date.today
+      days = [d, d+1.days, d+2.days, d+3.days, d+4.days, d+5.days, d+6.days]
+    else
+      d = Date.today.at_beginning_of_week
+      days = [d-1.days, d, d+1.days, d+2.days, d+3.days, d+4.days, d+5.days]
+    end
+    @events["classes"].each do |c|
+      c["times"].each do |t| 
+        (0..6).each do |day|
+          if t["days"][day] == "1"
+            @classes << {title: c["name"], start: "#{days[day].strftime("%Y-%m-%d")}T#{t["start_time"]}", end: "#{days[day].strftime("%Y-%m-%d")}T#{t["end_time"]}"}
+          end
+        end
+      end 
+    end
   end
   
   
@@ -42,7 +60,6 @@ class PagesController < ApplicationController
     @object = UserPermit.new
     @object.granted_user = params[:user_permit][:granted_user] 
     @object.granting_user = params[:user_permit][:granting_user] 
-    exit
     if(@object.save)
       redirect_to new_permit_path(current_user)
       flash[:notice] = "Matricula agregada exitosamente"

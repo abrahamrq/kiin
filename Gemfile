@@ -12,6 +12,8 @@ gem 'jbuilder', '2.2.11'
 gem 'bcrypt', '3.1.10'
 gem 'puma'
 gem 'jquery-datatables-rails'
+gem 'mongo'
+gem 'bson_ext'
 
 # Necessary for Windows OS (won't install on *nix systems)
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

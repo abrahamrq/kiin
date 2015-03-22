@@ -43,6 +43,10 @@ class User < ActiveRecord::Base
     email.delete("@itesm.mx")
   end
 
+  def mongo_id
+    student_id.delete("A").delete("a")
+  end
+
   def allowed_permits
     UserPermit.all.where(granting_user: student_id)  
   end
