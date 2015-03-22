@@ -56,6 +56,13 @@ class PagesController < ApplicationController
     @object_collection = current_user.allowed_permits
   end
 
+  def destroy_permit
+    @object = UserPermit.find(params[:id])
+    @object.destroy
+    @object_collection = current_user.allowed_permits
+    redirect_to new_permit_path(current_user)
+  end
+
   def create_permit
     @object = UserPermit.new
     @object.granted_user = params[:user_permit][:granted_user] 

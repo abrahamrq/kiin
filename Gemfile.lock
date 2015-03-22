@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    ImageResize (0.0.5)
     actionmailer (4.2.0)
       actionpack (= 4.2.0)
       actionview (= 4.2.0)
@@ -210,6 +211,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ImageResize (~> 0.0.5)
   bcrypt (= 3.1.10)
   better_errors
   bootstrap-sass (= 3.3.3)
