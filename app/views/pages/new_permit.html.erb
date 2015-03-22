@@ -16,12 +16,14 @@
       <thead>
         <tr>
           <th>Matricula</th>
+          <th> Eliminar </th>
         </tr>
       </thead>
       <tbody>
         <% @object_collection.each do |student_id| %>
         <tr>
           <td> <%= student_id.try :granted_user %></td>
+          <td> <%= link_to "Eliminar", delete_permit_path(student_id)%> </td>
         </tr>
         <% end %>
       </tbody>

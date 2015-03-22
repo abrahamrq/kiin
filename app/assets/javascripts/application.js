@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
-//= require turbolinks
 //= require bootstrap 
 //= require common
 //= require moment
@@ -30,3 +29,6 @@ $(function(){
         }
   });
 });
+
+//= require turbolinks
+
