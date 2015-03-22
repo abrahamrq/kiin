@@ -1,6 +1,0 @@
-<% title("Home Page") %>
-<% if current_user %>
-	<h1><i class="fa fa-home"></i> <%= current_user.student_id %> </h1>
-<% else %>
-	<h1><i class="fa fa-home"></i> BIENVENIDO A Kiin REGISTRATE <%= link_to 'AQUI', new_user_registration_path %></h1>
-<% end %>
