@@ -38,4 +38,8 @@ class User < ActiveRecord::Base
   def self.users_count
     where("admin = ? AND locked = ?",false,false).count
   end
+
+  def student_id
+    email.delete("@itesm.mx")
+  end
 end
