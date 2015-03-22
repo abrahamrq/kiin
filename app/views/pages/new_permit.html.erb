@@ -23,7 +23,7 @@
         <% @object_collection.each do |student_id| %>
         <tr>
           <td> <%= student_id.try :granted_user %></td>
-          <td> <%= link_to "Eliminar", delete_permit_path(student_id)%> </td>
+          <td> <a href="#{delete_permit_path(student_id)}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> </a></td>
         </tr>
         <% end %>
       </tbody>
