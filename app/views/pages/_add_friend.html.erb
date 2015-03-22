@@ -12,21 +12,24 @@
     </div>
   </div>
   <div class="col-md-12">
-    <table class="table datatable">
-      <thead>
-        <tr>
-          <th>Matricula</th>
-          <th class="no-sort" style="width: 50px;"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @object_collection.each do |student_id| %>
-        <tr>
-          <td> <%= student_id.try :granted_user %></td>
-          <td> <%= link_to "Eliminar", delete_permit_path(student_id)%> </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <h3 text-align="center">Amigos Permitidos</h3>
+    <div class="well">
+      <table class="table datatable">
+        <thead>
+          <tr>
+            <th>Matricula</th>
+            <th class="no-sort" style="width: 50px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @object_collection.each do |student_id| %>
+          <tr>
+            <td> <%= student_id.try :granted_user %></td>
+            <td> <%= link_to "Eliminar", delete_permit_path(student_id)%> </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
