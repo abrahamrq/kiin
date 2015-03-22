@@ -12,6 +12,7 @@ gem 'jbuilder', '2.2.11'
 gem 'bcrypt', '3.1.10'
 gem 'puma'
 gem 'jquery-datatables-rails'
+gem "ImageResize", "~> 0.0.5"
 
 # Necessary for Windows OS (won't install on *nix systems)
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
