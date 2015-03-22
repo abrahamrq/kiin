@@ -50,4 +50,8 @@ class User < ActiveRecord::Base
   def allowed_permits
     UserPermit.all.where(granting_user: student_id)  
   end
+
+  def friends
+    UserPermit.all.where(granted_user: student_id)  
+  end
 end

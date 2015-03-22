@@ -1,0 +1,32 @@
+ <br>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <div id="new_friend">
+      <div class="well">
+        <%= simple_form_for @object, url: create_permit_path  do |f| %>
+        <div class="field"><%= f.input :granted_user, label: 'Matricula:', as: :string %></div>
+        <div class="field"><%= f.hidden_field :granting_user,:value => current_user.email.match(/([Aa](\d+))@itesm\.mx/)[1] %></div>
+        <%= f.button :submit, "Continuar", class: "btn btn-primary", data: {disable_with: "Espere porfavor..."}%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <table class="table datatable">
+      <thead>
+        <tr>
+          <th>Matricula</th>
+          <th class="no-sort" style="width: 50px;"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @object_collection.each do |student_id| %>
+        <tr>
+          <td> <%= student_id.try :granted_user %></td>
+          <td> <%= link_to "Eliminar", delete_permit_path(student_id)%> </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

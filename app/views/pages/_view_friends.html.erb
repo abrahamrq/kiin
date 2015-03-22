@@ -1,0 +1,21 @@
+<br>
+<div class="row">
+  <div class="col-md-12">
+  	<table class="table datatable">
+		  <thead>
+		    <tr>
+		      <th>Matricula</th>
+		      <th class="no-sort" style="width: 100px;"></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<% @allowed.each do |a| %>
+			    <tr>
+			      <td> <%= a.granting_user %></td>
+			      <td> <%= link_to 'Ver Horario', friend_schedule_path("#{a.granting_user}@itesm.mx") %></td>
+			    </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+  </div>
+</div>
