@@ -42,4 +42,8 @@ class User < ActiveRecord::Base
   def student_id
     email.delete("@itesm.mx")
   end
+
+  def allowed_permits
+    UserPermit.all.where(granting_user: student_id)  
+  end
 end

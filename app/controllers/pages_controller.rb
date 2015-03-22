@@ -35,6 +35,7 @@ class PagesController < ApplicationController
 
   def new_permit
     @object = UserPermit.new
+    @object_collection = current_user.allowed_permits
   end
 
   def create_permit
