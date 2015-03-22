@@ -1,0 +1,30 @@
+<% if @exams %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+      	<center><h2>Mis Examenes</h2></center>
+      	<table class="table">
+          <thead>
+            <tr>
+              <th>Materia</th>
+              <th class="no-sort">Fecha</th>
+              <th class="no-sort">Hora</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @exams.each do |exam| %>
+              <tr>
+                <td><%= exam["class"] %></td>
+                <td><%= exam["date"] %></td>
+                <td><%= exam["hour"] %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> 
+<% else %>
+  <h2>NO HAS MANDADO MAIL...</h2>
+  <h4>Reenvia el mail que te mandaron de inscripciones al mail horarios.monterrey@gmail.com</h4>
+<% end %>

@@ -8,6 +8,7 @@ Kiin::Application.routes.draw do
   post '/new_friend/:id' => 'pages#create_permit', :as => 'create_permit' 
   get '/delete_friend/:id' => 'pages#destroy_permit', :as => 'delete_permit'
   get "friend/:email", to: "pages#friend_schedule", as: 'friend_schedule'
+  get "my_exams", to: "pages#exams", as: 'exams'
 
   devise_for :users
 

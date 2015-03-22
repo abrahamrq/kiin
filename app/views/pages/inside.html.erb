@@ -14,14 +14,21 @@
       	header: {
           left: '',
           center: '',
-          right: 'today prev,next'
+          right: ''
         },
         height: 720,
+        columnFormat: 'ddd',
         allDaySlot: false,
         minTime: '07:00:00',
         maxTime: '22:00:00',
         defaultView: 'agendaWeek',
-        events: <%== @classes.to_json %>
+        events: <%== @classes.to_json %>,
+        eventMouseover: function(calEvent, jsEvent, view) {
+        // change the border color just for fun
+        $(this).css('border-color', 'red');},
+        eventMouseout: function(calEvent, jsEvent, view) {
+        // change the border color just for fun
+        $(this).css('border-color', 'gray');}
       })
   });
   </script>
