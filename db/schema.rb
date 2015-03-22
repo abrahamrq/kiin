@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20150321230332) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "user_permits", force: :cascade do |t|
-    t.integer  "granting_user"
-    t.integer  "granted_user"
+    t.string   "granting_user"
+    t.string   "granted_user"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

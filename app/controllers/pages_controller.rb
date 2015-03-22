@@ -34,6 +34,21 @@ class PagesController < ApplicationController
   end
 
   def new_permit
+    @object = UserPermit.new
   end
+
+  def create_permit
+    @object = UserPermit.new
+    @object.granted_user = params[:user_permit][:granted_user] 
+    @object.granting_user = params[:user_permit][:granting_user] 
+    if(@object.save)
+      redirect_to new_permit_path(current_user)
+      flash[:notice] = "Matricula agregada exitosamente"
+    else
+      render :new_permit
+      flash[:alert] = "Error al agregar Matricula"
+    end
+  end
+
 
 end

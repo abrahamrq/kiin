@@ -36,7 +36,8 @@ group :development, :test do
   # Spring: https://github.com/rails/spring
   gem 'spring', '1.3.3'
 end
-
+gem 'better_errors'
+gem 'simple_form', '~> 3.1.0.rc2'
 
 # SQLite 3
 group :development, :test do

@@ -1,0 +1,10 @@
+<br>
+<div class = 'row'>
+  <div id="new_friend" style="width:280px;height:2em;float:left;margin-left:59px;margin-top:16px;">
+    <%= simple_form_for @object, url: create_permit_path  do |f| %>
+      <div class="field"><%= f.input :granted_user, label: 'Matricula:', as: :string %></div>
+      <div class="field"><%= f.hidden_field :granting_user,:value => current_user.email.match(/([Aa](\d+))@itesm\.mx/)[1] %></div>
+      <%= f.button :submit, "Continuar", class: "btn btn-primary", data: {disable_with: "Espere porfavor..."}%>
+    <% end %>
+  </div>
+</div>
