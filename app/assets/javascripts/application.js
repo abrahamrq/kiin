@@ -13,11 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
+<<<<<<< HEAD
+=======
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require dataTables/jquery.dataTables
+//= require turbolinks
+>>>>>>> 12213b0b1f95767f09b1949edff02db21f3064dc
 //= require bootstrap 
 //= require common
 //= require moment
 //= require fullcalendar
-//= require dataTables/jquery.dataTables
 
 $(function(){
   $('.datatable').DataTable({

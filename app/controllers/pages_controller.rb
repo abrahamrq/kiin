@@ -49,6 +49,7 @@ class PagesController < ApplicationController
     @object = UserPermit.new
     @object.granted_user = params[:user_permit][:granted_user] 
     @object.granting_user = params[:user_permit][:granting_user] 
+    exit
     if(@object.save)
       redirect_to new_permit_path(current_user)
       flash[:notice] = "Matricula agregada exitosamente"
